@@ -53,6 +53,7 @@ for y in tqdm(range(0, left_height, 1)):
 
                 diff = template - region
                 ssd = np.sum(diff * diff)
+                # sad = np.sum(np.abs(diff))
 
                 if ssd < min_val:
                     min_val = ssd
