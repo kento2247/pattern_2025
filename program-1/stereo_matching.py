@@ -2,17 +2,33 @@
 
 # ステレオマッチング
 
+import os
 import numpy as np
 from PIL import Image
 from tqdm import tqdm
+import argparse
 
 # パラメータ設定
-left_file = "left1.jpg"
-right_file = "right1.jpg"
+parser = argparse.ArgumentParser()
+parser.add_argument("--program_dir", default="program-1")
+parser.add_argument("--result_dir", default="program-1/results")
+parser.add_argument("--left", default="left1.jpg")
+parser.add_argument("--right", default="right1.jpg")
+parser.add_argument("--sim_metric", default="ssd")
+parser.add_argument("--explore_y", action="store_true")
+args = parser.parse_args()
+
+program_dir = args.program_dir
+left_image_name = args.left
+right_image_name = args.right
+similarity_metric = args.sim_metric  # "ssd" または "sad"
+explore_y = False  # y方向にも探索する場合はTrueに設定
 search_size = 21 // 2  # 探索領域の大きさ
 template_size = 21 // 2  # テンプレートの大きさ
 
 # 画像の読み込み
+left_file = os.path.join(program_dir, left_image_name)
+right_file = os.path.join(program_dir, right_image_name)
 left_img = Image.open(left_file).convert("L")
 right_img = Image.open(right_file).convert("L")
 left = np.asarray(left_img).astype(np.float32)
@@ -36,8 +52,8 @@ for y in tqdm(range(0, left_height, 1)):
         template = left[l_y1 : l_y2 + 1, l_x1 : l_x2 + 1]
 
         for dx in range(-search_size, search_size + 1):
-            for dy in range(-search_size, search_size + 1):
-                # for dy in [0]:  # 水平方向のみに制限
+            y_search_range = range(-search_size, search_size + 1) if explore_y else [0]
+            for dy in y_search_range:
                 r_x = x + dx
                 r_y = y + dy
 
@@ -52,11 +68,13 @@ for y in tqdm(range(0, left_height, 1)):
                 region = right[r_y1 : r_y2 + 1, r_x1 : r_x2 + 1]
 
                 diff = template - region
-                ssd = np.sum(diff * diff)
-                # sad = np.sum(np.abs(diff))
+                if similarity_metric == "ssd":
+                    score = np.sum(diff * diff)
+                elif similarity_metric == "sad":
+                    score = np.sum(np.abs(diff))
 
-                if ssd < min_val:
-                    min_val = ssd
+                if score < min_val:
+                    min_val = score
                     ans_x = r_x
                     ans_y = r_y
 
@@ -69,4 +87,6 @@ result = (result - min_value) / (max_value - min_value) * 255
 
 # 視差マップの保存
 result_img = Image.fromarray(np.uint8(result))
-result_img.save("result.jpg")
+save_file_name = f"{similarity_metric}_{'exploreY' if explore_y else 'noExploreY'}.jpg"
+save_path = os.path.join(args.result_dir, save_file_name)
+result_img.save(save_path)
