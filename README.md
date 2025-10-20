@@ -32,4 +32,25 @@ uv run python program-1/stereo_matching.py --program_dir program-1 --result_dir 
 
 # 類似度スコアの計算に SAD を使用．Y軸探索なし
 uv run python program-1/stereo_matching.py --program_dir program-1 --result_dir program-1/results --left left1.jpg --right right1.jpg --sim_metric sad
+
+# 類似度スコアの計算に SAD を使用．Y軸探索あり
+uv run python program-1/stereo_matching.py --program_dir program-1 --result_dir program-1/results --left left1.jpg --right right1.jpg --sim_metric sad --explore_y
+```
+
+## 課題 2
+
+### データセットのダウンロード
+
+以下のコマンドを実行して、データセットをダウンロードしてください。
+
+```sh
+wget -P program-2 http://lecture.comp.ae.keio.ac.jp/pattern2025/pdf/mnist.zip
+unzip program-2/mnist.zip -d program-2/mnist
+rm program-2/mnist.zip
+```
+
+### 実行コマンド例
+
+```sh
+uv run python program-2/NN-1.py --program_dir program-2 --image_dir program-2/mnist --train_num 100 --k 3
 ```

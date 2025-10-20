@@ -15,9 +15,6 @@ parser.add_argument(
     "--image_dir", type=str, default="program-2/mnist", help="Image directory"
 )
 parser.add_argument(
-    "--result_dir", type=str, default="program-2/results", help="Result directory"
-)
-parser.add_argument(
     "--train_num", type=int, default=100, help="Number of training images per class"
 )
 parser.add_argument("--k", type=int, default=1, help="Number of nearest neighbors")

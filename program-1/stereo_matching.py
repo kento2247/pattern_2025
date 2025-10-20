@@ -67,11 +67,15 @@ for y in tqdm(range(0, left_height, 1)):
 
                 region = right[r_y1 : r_y2 + 1, r_x1 : r_x2 + 1]
 
-                diff = template - region
+                flatten_template = template.flatten()
+                flatten_region = region.flatten()
                 if similarity_metric == "ssd":
-                    score = np.sum(diff * diff)
+                    score = np.dot(
+                        (flatten_template - flatten_region).T,
+                        (flatten_template - flatten_region),
+                    )
                 elif similarity_metric == "sad":
-                    score = np.sum(np.abs(diff))
+                    score = np.sum(np.abs(flatten_template - flatten_region))
 
                 if score < min_val:
                     min_val = score
