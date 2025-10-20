@@ -45,7 +45,7 @@ uv run python program-1/stereo_matching.py --program_dir program-1 --result_dir 
 
 ```sh
 wget -P program-2 http://lecture.comp.ae.keio.ac.jp/pattern2025/pdf/mnist.zip
-unzip program-2/mnist.zip -d program-2/mnist
+unzip program-2/mnist.zip -d program-2
 rm program-2/mnist.zip
 ```
 
