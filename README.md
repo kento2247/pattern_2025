@@ -54,3 +54,15 @@ rm program-2/mnist.zip
 ```sh
 uv run python program-2/NN-1.py --program_dir program-2 --image_dir program-2/mnist --train_num 100 --k 3
 ```
+
+## 課題 4
+
+EMアルゴリズムの実装
+
+### 実行コマンド例
+
+```sh
+uv run python program-4/EM-1.py
+```
+
+実行後、`program-4`ディレクトリに`EM-result.png`が出力されます。

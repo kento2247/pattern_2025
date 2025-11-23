@@ -2,8 +2,6 @@
 
 # 混合正規分布のグラフ表示
 
-import sys
-import os
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.stats as st

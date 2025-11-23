@@ -1,8 +1,5 @@
 # マハラノビス距離（MNIST）
 
-# > pip install matplotlib
-
-import sys
 import os
 import numpy as np
 from PIL import Image

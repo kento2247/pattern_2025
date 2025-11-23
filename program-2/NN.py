@@ -1,7 +1,5 @@
 # 最近傍法（プロトタイプが1個）
 
-import sys
-import os
 import random
 import numpy as np
 from PIL import Image

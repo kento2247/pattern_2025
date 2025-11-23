@@ -6,8 +6,6 @@
 # > pip install numpy
 # > pip install pillow
 
-import sys
-import os
 import numpy as np
 from PIL import Image, ImageDraw
 

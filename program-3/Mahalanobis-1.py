@@ -1,7 +1,5 @@
 # マハラノビス距離（ユークリッド距離）
 
-import sys
-import os
 import numpy as np
 import random
 

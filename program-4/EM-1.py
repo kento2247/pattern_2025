@@ -2,8 +2,6 @@
 
 # EMアルゴリズム（混合正規分布(二変量)）
 
-import sys
-import os
 import numpy as np
 import random
 import matplotlib.pyplot as plt

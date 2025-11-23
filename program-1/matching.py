@@ -5,8 +5,6 @@
 # python の場合 pillow をインストールして下さい
 # > pip install pillow
 
-import sys
-import os
 from PIL import Image, ImageDraw
 
 # 探索画像の読み込み
