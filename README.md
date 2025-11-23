@@ -55,6 +55,39 @@ rm program-2/mnist.zip
 uv run python program-2/NN-1.py --program_dir program-2 --image_dir program-2/mnist --train_num 100 --k 3
 ```
 
+
+## 課題 3
+
+プロトタイプ認識の実装
+
+### 実行コマンド例
+
+```sh
+# デフォルトパラメータ（K=3, N=5）で実行
+uv run python program-3/prototype-recog.py --program_dir program-3 --K 3 --N 5
+
+# デフォルトパラメータ（K=3, N=5）で実行
+uv run python program-3/prototype-recog.py --program_dir program-3 --K 3 --N 10
+
+# デフォルトパラメータ（K=3, N=5）で実行
+uv run python program-3/prototype-recog.py --program_dir program-3 --K 3 --N 20
+
+# パラメータを指定して実行（K=5, N=30）
+uv run python program-3/prototype-recog.py --program_dir program-3 --K 5 --N 5
+
+# パラメータを指定して実行（K=5, N=30）
+uv run python program-3/prototype-recog.py --program_dir program-3 --K 20 --N 5
+
+# パラメータを指定して実行（K=1, N=50）
+uv run python program-3/prototype-recog.py --program_dir program-3 --K 1 --N 10
+
+# パラメータを指定して実行（K=1, N=50）
+uv run python program-3/prototype-recog.py --program_dir program-3 --K 1 --N 100
+```
+
+実行後、認識結果と混同行列が表示されます。
+
+
 ## 課題 4
 
 EMアルゴリズムの実装

@@ -2,9 +2,10 @@
 
 # EMアルゴリズム（混合正規分布(一変量））
 
-import numpy as np
 import random
+
 import matplotlib.pyplot as plt
+import numpy as np
 import scipy.stats as st
 
 # 正規分布の個数

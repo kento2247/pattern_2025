@@ -1,7 +1,8 @@
 # マハラノビス距離（ユークリッド距離）
 
-import numpy as np
 import random
+
+import numpy as np
 
 # クラス数，学習データ数，テストデータ数，特徴数
 class_num = 4

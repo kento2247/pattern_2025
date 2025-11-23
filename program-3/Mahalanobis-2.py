@@ -1,9 +1,10 @@
 # マハラノビス距離（MNIST）
 
 import os
+
+import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
-import matplotlib.pyplot as plt
 
 # 縦，横の大きさ
 size = 14

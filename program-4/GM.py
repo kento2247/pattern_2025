@@ -2,8 +2,8 @@
 
 # 混合正規分布のグラフ表示
 
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 import scipy.stats as st
 
 # 合成する正規分布の個数
